@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StatusBar } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
-import { Button, Input, Image } from "react-native-elements";
+import { Button, Input, Image, withTheme } from "react-native-elements";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +10,7 @@ const LoginScreen = () => {
   const signIn = () => {};
 
   return (
-    <View>
+    <View behavior="padding" style={styles.container}>
       <StatusBar style="light" />
       <Image
         source={{
@@ -37,6 +37,7 @@ const LoginScreen = () => {
       </View>
       <Button containerStyle={styles.button} onPress={signIn} title="Login" />
       <Button containerStyle={styles.button} type="outline" title="Register" />
+      <View style={{ height: 200 }} />
     </View>
   );
 };
@@ -44,6 +45,18 @@ const LoginScreen = () => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-  inputContainer: {},
-  button: {},
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
+    backgroundColor: "white",
+  },
+  inputContainer: {
+    width: 300,
+  },
+  button: {
+    width: 200,
+    marginTop: 10,
+  },
 });
