@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { StatusBar } from "react-native";
 import { StyleSheet, Text, View } from "react-native";
-import { Button, Input, Image, withTheme } from "react-native-elements";
+import { Button, Input, Image } from "react-native-elements";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -36,8 +36,13 @@ const LoginScreen = () => {
         />
       </View>
       <Button containerStyle={styles.button} onPress={signIn} title="Login" />
-      <Button containerStyle={styles.button} type="outline" title="Register" />
-      <View style={{ height: 200 }} />
+      <Button
+        onPress={() => navigation.navigate("Register")}
+        containerStyle={styles.button}
+        type="outline"
+        title="Register"
+      />
+      <View style={{ height: 100 }} />
     </View>
   );
 };
